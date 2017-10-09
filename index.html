@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>router</title>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h2 class="text-success">hello router</h2>
+        <p>
+            <ul class="nav nav-pills">
+                <li role="presentation">
+                    <router-link to="/foo">foo</router-link>
+                </li>
+                <li role="presentation">
+                    <router-link to="/bar">bar</router-link>
+                </li>
+                <li role="presentation">
+                    <ul class="list-inline">
+                        <li class="list-group-item" style="border:none;">
+                            <router-link to="/lazy1">Lazy1</router-link>
+                        </li>
+                        <li class="list-group-item" style="border:none;">
+                            <router-link to="/lazy2">Lazy2</router-link>
+                        </li>
+                    </ul>
+                </li>
+
+                <router-link tag="li" to="/muti">
+                    <a> muti</a>
+                </router-link>
+
+                <router-link tag="li" to="/muti/a">
+                    <a> muti.a</a>
+                </router-link>
+
+                <router-link tag='li' to="/user/1">
+                    <a href="">user</a>
+                </router-link>
+
+                <li>
+                    <a href="javascript:void(0);" @click="$router.push({name:'user',params:{id:'123'}})">clickToUser</a>
+                </li>
+                <li>
+                    <router-link to="/app/foo">app.foo</router-link>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" @click="$router.push({path:'/app/bar'})">clickToAppBar</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" @click="$router.push({path:'/app/load'})">load</a>
+                </li>
+                <li>
+                    <!-- 动态添加routes -->
+                    <button class="btn btn-primary" @click.once='addRoutes'>添加routes(add1)</button>
+                </li>
+            </ul>
+
+        </p>
+        <!-- <transition> -->
+        <router-view class="panel panel-success"></router-view>
+        <!-- </transition> -->
+    </div>
+</body>
+<script src="/dist/chunk.js"></script>
+<script src="/dist/main.js"></script>
+
+</html>
